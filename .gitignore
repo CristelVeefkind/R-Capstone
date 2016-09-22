@@ -1,0 +1,9 @@
+.Rproj.user
+.Rhistory
+.RData
+.Ruserdata
+.directory
+data
+model
+prediction
+milestone_report/milestone_report_cache
