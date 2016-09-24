@@ -10,9 +10,10 @@ source("scripts/config.r")
 
 print("creating ngram data splits")
 
-if (!file.exists(sprintf("%s/%s.rds", model_data_dir, "data"))) {
-  for (src in c("blogs", "news", "twitter", "data")) {
-    for (x in list(c("bigram", 2),
+if (!file.exists(sprintf("%s/%s.rds", model_data_dir, "data_train_tetragram"))) {
+  for (src in c("blogs", "news", "twitter", "data_train")) {
+    for (x in list(c("unigram", 1),
+                   c("bigram", 2),
                    c("trigram", 3),
                    c("tetragram", 4))) {
       ngram_type <- as.character(x[1])
