@@ -25,7 +25,7 @@ if (!file.exists(sprintf("%s/data_train.rds", data_raw_dir))
   validation_data <- c()
   test_data <- c()
   
-  for (src in c('blogs', 'news', 'twitter')) {
+  for (src in c("blogs", "news", "twitter",)) {
     # train split
     txt <- readRDS(sprintf("%s/%s.rds", data_raw_dir, src))
     num_lines <- length(txt)
@@ -48,9 +48,9 @@ if (!file.exists(sprintf("%s/data_train.rds", data_raw_dir))
         sampled_lines <- txt
       }
       
-      rds_file <- sprintf("%s/%s_%s.rds", data_raw_dir, src, split_type)
-      saveRDS(sampled_lines, rds_file)
-      print(sprintf("%s created", rds_file))
+      #rds_file <- sprintf("%s/%s_%s.rds", data_raw_dir, src, split_type)
+      #saveRDS(sampled_lines, rds_file)
+      #print(sprintf("%s created", rds_file))
       
       if (split_type == "train") {
         train_data <- c(train_data, sampled_lines)

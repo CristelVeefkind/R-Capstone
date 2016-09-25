@@ -4,6 +4,7 @@
 .Ruserdata
 .directory
 data
+shiny/data
 model
 prediction
 milestone_report/milestone_report_cache

@@ -4,15 +4,18 @@ data_dir <- "data"
 data_raw_dir <- "data/raw"
 data_clean_dir <- "data/clean"
 
-model_dir <- "model"
-model_data_dir <- "model/data"
+model_dir <- "shiny"
+model_data_dir <- "shiny/data"
 
-prediction_dir <- "prediction"
-prediction_data_dir <- "prediction/data"
+prediction_dir <- "data"
+prediction_data_dir <- "data/prediction"
 
 # percent of total lines used in train, validation and test stages
 # the higher the percentage of data used in train, the higher the accuracy, but
 # also the higher the sparsity of data and the memory/time required to process the data
-train_part <- 70.0
-validation_part <- 15.0
-test_part <- 15.0
+train_part <- 10.0
+validation_part <- 10.0
+test_part <- 80.0
+
+dict_dir <- "dicts/cracklib-small.txt"
+UNK <- "UNK"
