@@ -17,5 +17,5 @@ train_part <- 10.0
 validation_part <- 10.0
 test_part <- 80.0
 
-dict_dir <- "dicts/cracklib-small.txt"
+dict_dir <- "shiny/dicts/cracklib-small.txt"
 UNK <- "UNK"

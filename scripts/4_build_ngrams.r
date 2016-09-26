@@ -28,7 +28,7 @@ nrams_freq_df <- function(tokens, ngram) {
   }
   rownames(df_freq) <- c(1:nrow(df_freq))
   df_freq  <- df_freq[complete.cases(df_freq),]
-  return(df_freq)
+  df_freq
 }
 
 print("creating ngram data splits")
