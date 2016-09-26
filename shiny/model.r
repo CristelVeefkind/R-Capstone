@@ -33,39 +33,44 @@ ngram_prediction <- function(txt, ngram = 4) {
   txt <-tail(txt, ngram)
   txt <- paste(txt, collapse = "_")
   
-  col_ngrams <- word(txt, -1:-ngram, -1, sep = fixed("_"))
-  ngrams_df <- data.frame(col_ngrams, stringsAsFactors = FALSE)
-  colnames(ngrams_df) <- "ngram"
-  ngrams_df
+  res <- list()
+  res$bigram <- word(txt, -1, -1, sep = fixed("_"))
+  res$trigram <- word(txt, -2, -1, sep = fixed("_"))
+  res$tetragram <- word(txt, -3, -1, sep = fixed("_"))
+  
+  res
 }
 
 next_word <- function(txt) {
   txt <- preprocess_input(txt)
   num_words <- length(txt)
-  ngrams_df <- ngram_prediction(txt)
+  ngrams <- ngram_prediction(txt)
   
   if(num_words >= 3){
-    prediction <- tetragrams[tetragrams$sentence == ngrams_df$ngram[3], ]
+    prediction <- tetragrams[tetragrams$sentence == ngrams$tetragram, ]
+    print("tetragram prediction:")
+    print(head(prediction, min(nrow(prediction), 5)))
     prediction <- head(prediction, 1)$prediction
-    print(sprintf("tetragram prediction: %s", prediction))
     if(!identical(prediction, character(0))){
       return(prediction)
     }
   }
   
   if(num_words >= 2){
-    prediction <- trigrams[trigrams$sentence == ngrams_df$ngram[2], ]
+    prediction <- trigrams[trigrams$sentence == ngrams$trigram, ]
+    print("trigram prediction:")
+    print(head(prediction, min(nrow(prediction), 5)))
     prediction <- head(prediction, 1)$prediction
-    print(sprintf("trigram prediction: %s", prediction))
     if(!identical(prediction, character(0))){
       return(prediction)
     }
   }
   
   if(num_words >= 1){
-    prediction <- bigrams[bigrams$sentence == ngrams_df$ngram[1], ]
+    prediction <- bigrams[bigrams$sentence == ngrams$bigram, ]
+    print("bigram prediction:")
+    print(head(prediction, min(nrow(prediction), 5)))
     prediction <- head(prediction, 1)$prediction
-    print(sprintf("bigram prediction: %s", prediction))
     if(!identical(prediction, character(0))){
       return(prediction)
     }

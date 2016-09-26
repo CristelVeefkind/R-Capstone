@@ -15,6 +15,7 @@ nrams_freq_df <- function(tokens, ngram) {
   data_ngram <- dfm(tokens, ngrams = ngram, toLower = F, verbose = T)
   
   df_freq <- sort(colSums(data_ngram), decreasing = T)
+  
   df_freq  <- data.frame(names(df_freq), df_freq)
   names(df_freq) <- c("words", "frequency")
   
