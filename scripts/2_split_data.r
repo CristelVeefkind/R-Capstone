@@ -25,7 +25,7 @@ if (!file.exists(sprintf("%s/data_train.rds", data_raw_dir))
   validation_data <- c()
   test_data <- c()
   
-  for (src in c("blogs", "news", "twitter",)) {
+  for (src in c("blogs", "news", "twitter")) {
     # train split
     txt <- readRDS(sprintf("%s/%s.rds", data_raw_dir, src))
     num_lines <- length(txt)
