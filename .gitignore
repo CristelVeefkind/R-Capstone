@@ -4,5 +4,6 @@
 .Ruserdata
 .directory
 data
+shiny/rsconnect/
 presentation/rsconnect/
 milestone_report/milestone_report_cache

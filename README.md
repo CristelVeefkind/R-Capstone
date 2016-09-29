@@ -50,10 +50,4 @@ The original english corpus combined over 580 MB of language information. Which 
 ### Additional information
 All R scripts, files, presentations etc. in this repository are materials for the capstone project of the Coursera Data Science specialization held by professors of the Johns Hopkins University and in cooperation with SwiftKey.
 
-
-- The next word prediction app is hosted on shinyapps.io: @todo
-- The same app is also hosted on my private shiny server: @todo
-- The whole code of this application, as well as all related scripts, milestone report and this presentation can be found in my Github repo: 
-[https://github.com/Scitator/R-Capstone](https://github.com/Scitator/R-Capstone)
-- This pitch deck with a short presentation for the capstone application is located here: @todo
 - Learn more about the Coursera Data Science Specialization: [https://www.coursera.org/specialization/jhudatascience](https://www.coursera.org/specialization/jhudatascience)
