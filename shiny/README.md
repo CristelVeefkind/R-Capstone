@@ -2,7 +2,7 @@
 ## Coursera - Data Science Specialization Capstone
 * Author:  Kolesnikov Sergey
 * Date: 29.09.2016  
-* [Email](mailto:scitatorgmail.com)  
+* [Email](mailto:scitator@gmail.com)  
 * [GitHub url](https://github.com/Scitator/R-Capstone)
 * [Presentation url]()
 
@@ -44,20 +44,20 @@ allows copy and paste. Text is not case sensitive.
 
 Delete `Text Area`
 
-### Add buttons:
+### Prediction buttons:
 
-When one of `Add` buttons is pressed it merges predicted word to `Text Area` sentence, to do further predictions.  
+When one of `Prediction` buttons is pressed it merges predicted word to `Text Area` sentence, to do further predictions.  
 
 ## N-grams tables:
 
 Select from `unigrams`, `bigrams`, `trigrams` and `tetragrams` to display desired table.
 
-All N-grams tables but `unigrams` have four columns:  `sentence`, `prediction`, `frequency` and `probability`.
+All N-grams tables have four columns: `sentence`, `prediction`, `frequency` and `probability`.
 
 ## N-grams plot
 
 Select from `unigrams`, `bigrams`, `trigrams` and `tetragrams` to display
-n-grams barplot ordered by `probability`
+n-grams barplot ordered by `probability`.
 
 ## About:
 Shows this page.
