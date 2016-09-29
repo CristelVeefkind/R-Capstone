@@ -144,7 +144,7 @@ ui <- shinyUI(fluidPage(
       )
     ),
     #---------------------------------------------------------------------------
-    tabPanel('About', includeMarkdown('about.Rmd'))
+    tabPanel('About', includeMarkdown('README.md'))
   ))
 ))
 
