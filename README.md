@@ -4,7 +4,8 @@
 * Date: 29.09.2016  
 * [Email](mailto:scitator@gmail.com)  
 * [GitHub url](https://github.com/Scitator/R-Capstone)
-* [Presentation url]()
+* [Presentation url](http://rpubs.com/Scitator/NextWordPredictionApp)
+* [App](https://scitator.shinyapps.io/NextWordPredictionApp)
 
 ## Coursera Data Science Capstone Project
 The Coursera Data Science Specialization Capstone project from Johns Hopkins University (JHU) allows 
@@ -15,10 +16,10 @@ and academic partners. In this part of course JHU is partnering with SwiftKey
 
 ## Next word prediction app (using N-gram models)
 - based on N-gram model with "Stupid Backoff" ([Brants et al 2007](http://www.cs.columbia.edu/~smaskey/CS6998-0412/supportmaterial/langmodel_mapreduce.pdf))
-- checks if highest-order (in this case, n=4) n-gram has been seen. If not "degrades" to a lower-order model (n=3, 2);
-- build on `cracklib-small` dictionary.
+- checks if highest-order (in this case, n=4) n-gram has been seen. If not "degrades" to a lower-order model (n=3, 2)
+- build on `cracklib-small` dictionary
 
-For additional prediction accuracy we also used:
+For additional prediction accuracy were also used:
 - Good-Turing Smoothing
 - MLE
 - linear-regression
@@ -31,12 +32,12 @@ The underlying dataset for this word prediction app was gathered from three sour
 * News
 * Twitter
 
-The original english corpus combined over 580 MB of language information. Which summed up to over half a billion characters. After processing the data our model consists out of almost **millions of ngram tokens**.
+The original english corpus combined over 580 MB of language information. Which summed up to over half a billion characters. After processing the data our model consists out of **millions of ngram tokens**.
 
 ### The project consisted on several parts:
   1. Getting the data
   2. Data splitting
-  3. Data cleaning and tokenising
+  3. Data cleaning and tokenization
   4. Building n-gram model
   5. Building predictive model
   6. Building shiny app

@@ -4,7 +4,7 @@
 * Date: 29.09.2016  
 * [Email](mailto:scitator@gmail.com)  
 * [GitHub url](https://github.com/Scitator/R-Capstone)
-* [Presentation url]()
+* [Presentation url](http://rpubs.com/Scitator/NextWordPredictionApp)
 
 ## Coursera Data Science Capstone Project
 The Coursera Data Science Specialization Capstone project from Johns Hopkins University (JHU) allows 
@@ -31,7 +31,7 @@ The underlying dataset for this word prediction app was gathered from three sour
 * News
 * Twitter
 
-The original english corpus combined over 580 MB of language information. Which summed up to over half a billion characters. After processing the data our model consists out of almost **millions of ngram tokens**.
+The original english corpus combined over 580 MB of language information. Which summed up to over half a billion characters. After processing the data our model consists out of **millions of ngram tokens**.
 
 ## Prediction App:
 
@@ -72,6 +72,3 @@ Shows this page.
 ### Dictionaries:
 
 * [cracklib-small](https://github.com/cracklib/cracklib/blob/master/src/dicts/cracklib-small)
-
-### Presentation:
-@ todo

@@ -12,6 +12,7 @@ library(shiny)
 library(shinythemes)
 library(ggplot2)
 library(RColorBrewer)
+library(markdown)
 
 source("model.r")
 

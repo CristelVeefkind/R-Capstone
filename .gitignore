@@ -4,6 +4,5 @@
 .Ruserdata
 .directory
 data
-model
-prediction
+presentation/rsconnect/
 milestone_report/milestone_report_cache

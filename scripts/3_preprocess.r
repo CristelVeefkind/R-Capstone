@@ -30,23 +30,6 @@ if (!file.exists(sprintf("%s/%s.rds", data_clean_dir, "data_train"))) {
 
     raw_txt <- readRDS(sprintf("%s/%s.rds", data_raw_dir, src))
     data_raw <- c(data_raw, raw_txt)
-    
-    #t <- system.time(clean_txt <- tokenize(raw_txt, 
-    #                                       removeURL = T, 
-    #                                       removeNumbers = T, 
-    #                                       removePunct = T, 
-    #                                       removeSymbols = T, 
-    #                                       removeSeparators = T, 
-    #                                       removeTwitter = T, 
-    #                                       removeHyphens = T, 
-    #                                       verbose = T))
-    #print(sprintf("%s text preprocessing completed in %.3f s", src, t[3]))
-    #
-    #rds_file <- sprintf("%s/%s.rds", data_clean_dir, src)
-    #saveRDS(clean_txt, rds_file)
-    #print(sprintf("%s created", rds_file))
-    
-    #data_clean <- c(data_clean, clean_txt)
   }
   
   t <- system.time({
