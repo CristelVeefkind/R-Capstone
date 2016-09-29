@@ -138,8 +138,10 @@ if (!file.exists(rds_file)) {
         data_probs <- nrams_freq_df_probs(data_ngram)
         
         print("merging ngrams with probabilities")
-        data_ngram$p <- data_probs$p[match(data_ngram$freq, data_probs$r)]
-        data_ngram <- data_ngram[order(data_ngram$p, decreasing = TRUE),]
+        data_ngram$probability <- data_probs$probability[
+          match(data_ngram$freq, data_probs$r)]
+        data_ngram <- data_ngram[
+          order(data_ngram$probability, decreasing = TRUE),]
         })
       
       rds_file <- sprintf("%s/%s_%s.rds", model_data_dir, src, ngram_type)

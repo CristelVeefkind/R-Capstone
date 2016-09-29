@@ -6,9 +6,12 @@ source("config.r")
 
 dct <- readLines(dict_dir, encoding = "UTF-8")
 
+unigrams <- readRDS(sprintf("%s/%s.rds", data_dir, "data_unigram"))
 bigrams <- readRDS(sprintf("%s/%s.rds", data_dir, "data_bigram"))
 trigrams <- readRDS(sprintf("%s/%s.rds", data_dir, "data_trigram"))
 tetragrams <- readRDS(sprintf("%s/%s.rds", data_dir, "data_tetragram"))
+
+ngrams_names <- c("unigrams", "bigrams", "trigrams", "tetragrams")
 
 preprocess_input <- function(txt) {
   txt <- corpus(tolower(txt))
@@ -46,38 +49,43 @@ next_word <- function(txt) {
   num_words <- length(txt)
   ngrams <- ngram_prediction(txt)
   
-  if(num_words >= 3){
-    prediction <- tetragrams[tetragrams$sentence == ngrams$tetragram, ]
-    print("tetragram prediction:")
-    print(head(prediction, min(nrow(prediction), 5)))
-    prediction <- head(prediction, 1)$prediction
-    if(!identical(prediction, character(0))){
-      return(prediction)
+  if(num_words >= 3 && (!exists("prediction") || nrow(prediction) < 5)) {
+    tetra_prediction <- tetragrams[tetragrams$sentence == ngrams$tetragram, ]
+    if (!exists("prediction")) {
+      prediction <- head(tetra_prediction, 5)
+    } else {
+      prediction <- rbind(prediction, head(tetra_prediction, 5))  
+    }
+    
+  }
+  
+  if(num_words >= 2 && (!exists("prediction") || nrow(prediction) < 5)) {
+    tri_prediction <- trigrams[trigrams$sentence == ngrams$trigram, ]
+    if (!exists("prediction")) {
+      prediction <- head(tri_prediction, 5)
+    } else {
+      prediction <- rbind(prediction, head(tri_prediction, 5))  
     }
   }
   
-  if(num_words >= 2){
-    prediction <- trigrams[trigrams$sentence == ngrams$trigram, ]
-    print("trigram prediction:")
-    print(head(prediction, min(nrow(prediction), 5)))
-    prediction <- head(prediction, 1)$prediction
-    if(!identical(prediction, character(0))){
-      return(prediction)
+  if(num_words >= 1 && (!exists("prediction") || nrow(prediction) < 5)) {
+    bi_prediction <- bigrams[bigrams$sentence == ngrams$bigram, ]
+    if (!exists("prediction")) {
+      prediction <- head(bi_prediction, 5)
+    } else {
+      prediction <- rbind(prediction, head(bi_prediction, 5))  
     }
   }
   
-  if(num_words >= 1){
-    prediction <- bigrams[bigrams$sentence == ngrams$bigram, ]
-    print("bigram prediction:")
-    print(head(prediction, min(nrow(prediction), 5)))
-    prediction <- head(prediction, 1)$prediction
-    if(!identical(prediction, character(0))){
-      return(prediction)
+  if (!exists("prediction")) {
+    return(rep("the", 5))
+  } else {
+    prediction <- prediction[order(prediction$probability, decreasing = TRUE),]
+    prediction <- prediction$prediction
+    prediction_length <- length(prediction)
+    if (prediction_length < 5) {
+      prediction <- c(prediction, rep("the", 5 - prediction_length))
     }
+    return(prediction)
   }
-  
-  prediction <- "the"
-  print(sprintf("unigram prediction: %s", prediction))
-  prediction
-  
 }

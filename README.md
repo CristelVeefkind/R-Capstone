@@ -10,18 +10,35 @@ and academic partners. In this part of course JHU is partnering with SwiftKey
 ## Next word prediction app (using N-gram models)
 - based on N-gram model with "Stupid Backoff" ([Brants et al 2007](http://www.cs.columbia.edu/~smaskey/CS6998-0412/supportmaterial/langmodel_mapreduce.pdf))
 - checks if highest-order (in this case, n=4) n-gram has been seen. If not "degrades" to a lower-order model (n=3, 2);
+- build on `cracklib-small` dictionary.
+
+For additional prediction accuracy we also used:
+- Good-Turing Smoothing
+- MLE
+- linear-regression
+- linguistic tweaks
+
+## Dataset
+The underlying dataset for this word prediction app was gathered from three sources:
+
+* Blogs
+* News
+* Twitter
+
+The original english corpus combined over 580 MB of language information. Which summed up to over half a billion characters. After processing the data our model consists out of almost **millions of ngram tokens**.
 
 ### The project consisted on several parts:
-  1. Getting and cleaning the data
-  2. Exploratory Data Analysis
-  3. Building n-gram model
-  4. Building predictive model
-  5. Evaluating the model
+  1. Getting the data
+  2. Data splitting
+  3. Data cleaning and tokenising
+  4. Building n-gram model
+  5. Building predictive model
   6. Building shiny app
   
 ### How to run the code:
-Before running the shiny app server, you need to build your prediction model first. In order to do this just go to the "scripts" folder, configure "config.r" and run "run.r"
-**@need_to_update**
+- Simply run shipy app server from `shiny` dir.
+
+- Or build your own prediction model first. In order to do this just go to the "scripts" folder, configure "config.r" and run "run.r". This will take a while.
 
 ### Additional information
 All R scripts, files, presentations etc. in this repository are materials for the capstone project of the Coursera Data Science specialization held by professors of the Johns Hopkins University and in cooperation with SwiftKey.
