@@ -2,7 +2,9 @@ Next Word Prediction App
 ========================================================
 author: Kolesnikov Sergey
 date: 29.09.2016
-autosize: true
+autosize: false
+width: 1920
+height: 1080
 
 ### COURSERA - Data Science Specialization Capstone.
 
